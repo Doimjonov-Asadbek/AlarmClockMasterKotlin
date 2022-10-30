@@ -4,52 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecoveryPassword">
+    tools:context=".RecoveryEmailCode">
 
-    <EditText
-        android:id="@+id/edtRecoveryEmail"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="200dp"
-        android:hint="Parol"
-        android:paddingStart="15dp"
-        android:textSize="15sp"
-        android:inputType="textEmailAddress"
-        android:textColorHint="@color/grey"
-        android:background="@drawable/corner"
+    <View
+        android:id="@+id/viewRecoveryBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/ic_back"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline1"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="Autofill,HardcodedText,MissingConstraints,RtlSymmetry" />
+        tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/edtRecoveryPassword"
+        android:id="@+id/edtRecoveryCode"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:inputType="text"
+        android:layout_marginTop="180dp"
         android:background="@drawable/corner"
-        android:hint="Parolni qayta kiriting"
-        android:inputType="textPassword"
+        android:hint="Tasdiqlash elektron pochta kodi"
         android:paddingStart="15dp"
-        android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
-        app:layout_constraintTop_toBottomOf="@+id/edtRecoveryEmail"
-        tools:ignore="Autofill,HardcodedText,RtlSymmetry" />
+        app:layout_constraintTop_toBottomOf="@+id/viewRecoveryBack"
+        tools:ignore="Autofill,HardcodedText,MissingConstraints,RtlSymmetry,TextFields" />
+
+    <TextView
+        android:id="@+id/txtRecoveryTime"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginTop="8dp"
+        android:text="01:59"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/edtRecoveryCode"
+        tools:ignore="HardcodedText,MissingConstraints" />
 
     <Button
         android:id="@+id/btnRecovery"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
+        android:text="Bajarmoq"
         android:background="@drawable/corner"
-        android:text="Kirish"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
-        app:layout_constraintTop_toBottomOf="@+id/edtRecoveryPassword"
+        app:layout_constraintTop_toBottomOf="@+id/txtRecoveryTime"
         tools:ignore="HardcodedText" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -65,5 +74,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.94" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.01" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

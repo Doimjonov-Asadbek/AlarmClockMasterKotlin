@@ -28,7 +28,7 @@
         android:id="@+id/edtSignPassword"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/corner"
         android:hint="Parol"
         android:inputType="textPassword"
@@ -36,9 +36,9 @@
         android:textColorHint="@color/grey"
         android:textSize="15sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
-        app:layout_constraintTop_toTopOf="@+id/edtSignEmail"
+        app:layout_constraintTop_toBottomOf="@+id/edtSignEmail"
         tools:ignore="Autofill,HardcodedText,RtlSymmetry" />
 
     <TextView
