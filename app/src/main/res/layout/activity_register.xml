@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInActivity">
-
+    tools:context=".RegisterActivity">
 
     <EditText
-        android:id="@+id/edtSignEmail"
+        android:id="@+id/edtRegisterEmail"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="180dp"
         android:hint="Email"
         android:paddingStart="15dp"
         android:textSize="15sp"
@@ -25,7 +24,7 @@
         tools:ignore="Autofill,HardcodedText,MissingConstraints,RtlSymmetry" />
 
     <EditText
-        android:id="@+id/edtSignPassword"
+        android:id="@+id/edtRegisterPassword"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
@@ -38,51 +37,54 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
-        app:layout_constraintTop_toBottomOf="@+id/edtSignEmail"
+        app:layout_constraintTop_toBottomOf="@+id/edtRegisterEmail"
         tools:ignore="Autofill,HardcodedText,RtlSymmetry" />
 
-    <TextView
-        android:id="@+id/txtSignRecoveryPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Parolni unutdingizmi?"
-        android:textColor="@color/red"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline1"
-        app:layout_constraintTop_toBottomOf="@+id/edtSignPassword"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/btnSignIn"
+    <EditText
+        android:id="@+id/edtRegisterReturnPass"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/corner"
-        android:text="Kirish"
+        android:hint="Parolni qaytadan kiriting"
+        android:inputType="textPassword"
+        android:paddingStart="15dp"
+        android:textColorHint="@color/grey"
+        android:textSize="15sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
-        app:layout_constraintTop_toBottomOf="@+id/txtSignRecoveryPassword"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toBottomOf="@+id/edtRegisterPassword"
+        tools:ignore="Autofill,HardcodedText,RtlSymmetry" />
 
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:text="Ro'yxatdan o'tish"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="@+id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/edtRegisterReturnPass"
+        tools:ignore="HardcodedText,MissingConstraints" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Hisobingiz yo'qmi?"
+        android:text="Hisobingiz Bormi?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         tools:ignore="HardcodedText,MissingConstraints" />
 
     <TextView
-        android:id="@+id/txtSignRegistration"
+        android:id="@+id/txtRegisterSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingStart="10dp"
-        android:text="Ro'yxatdan o'tish"
+        android:text="Kirish"
         android:textColor="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -109,6 +111,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.56" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
