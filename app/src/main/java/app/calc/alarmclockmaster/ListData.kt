@@ -1,4 +1,4 @@
-package app.calc.alarmmaster
+package app.calc.alarmclockmaster
 
 data class ListData(
     var Clock: String,

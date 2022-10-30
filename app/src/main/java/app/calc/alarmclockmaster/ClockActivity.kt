@@ -12,8 +12,6 @@ import android.widget.ListView
 import android.widget.TimePicker
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
-import app.calc.alarmmaster.ListData
-import app.calc.alarmmaster.adapters.ListAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ClockActivity : AppCompatActivity() {

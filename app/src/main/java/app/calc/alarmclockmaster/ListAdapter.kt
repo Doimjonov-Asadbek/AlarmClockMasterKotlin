@@ -1,4 +1,4 @@
-package app.calc.alarmmaster.adapters
+package app.calc.alarmclockmaster
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.RequiresApi
-import app.calc.alarmclockmaster.R
-import app.calc.alarmmaster.ListData
 
 @Suppress("NAME_SHADOWING")
 class ListAdapter(private val context:Activity, private val list:ArrayList<ListData>) : BaseAdapter() {
