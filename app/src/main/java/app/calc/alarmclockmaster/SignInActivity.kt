@@ -43,7 +43,6 @@ class SignInActivity : AppCompatActivity() {
             else {
                 val intent = Intent(this, ConfirmationCode::class.java)
                 startActivity(intent)
-                finish()
             }
         }
     }
