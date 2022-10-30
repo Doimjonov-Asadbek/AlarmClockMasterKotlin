@@ -32,17 +32,16 @@ class ClockActivity : AppCompatActivity() {
         listView = findViewById(R.id.listView)
 
         val settings = findViewById<View>(R.id.settings)
-        val ActionButton = findViewById<FloatingActionButton>(R.id.ActionButton)
+        val actionButton = findViewById<FloatingActionButton>(R.id.ActionButton)
 
         settings.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
         }
 
-        ActionButton.setOnClickListener {
+        actionButton.setOnClickListener {
             allClock()
         }
-
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
