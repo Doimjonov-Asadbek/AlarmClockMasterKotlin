@@ -69,6 +69,8 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:theme="@style/mySwitch"
+        android:thumb="@drawable/thumb"
+        android:track="@drawable/track"
         android:checked="true"
         android:layout_marginEnd="32dp"
         app:layout_constraintBottom_toTopOf="@+id/view"
