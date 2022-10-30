@@ -14,7 +14,7 @@ class SignInActivity : AppCompatActivity() {
         val txtSignRecoveryPassword = findViewById<TextView>(R.id.txtSignRecoveryPassword)
 
         txtSignRecoveryPassword.setOnClickListener {
-            val intent = Intent(this, RecoveryPassword::class.java)
+            val intent = Intent(this, RecoveryEmailCode::class.java)
             startActivity(intent)
         }
 
