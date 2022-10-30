@@ -41,7 +41,7 @@ class SignInActivity : AppCompatActivity() {
                 edtSignPassword.error = "Parol kamida 4 ta belgidan iborat bo'lishi kerak"
             }
             else {
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, ConfirmationCode::class.java)
                 startActivity(intent)
                 finish()
             }
