@@ -38,6 +38,5 @@ class RecoveryPassword : AppCompatActivity() {
                 finish()
             }
         }
-
     }
 }
