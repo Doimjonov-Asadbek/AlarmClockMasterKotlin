@@ -24,6 +24,9 @@ class RecoveryPassword : AppCompatActivity() {
                 edtRecoveryReturnPass.error = "Parolni kiriting"
             }
             else if (edtRecoveryPass.text.toString().length < 4) {
+                edtRecoveryPass.error = "Parol kamida 4 ta belgidan iborat bo'lishi kerak"
+            }
+            else if (edtRecoveryReturnPass.text.toString().length < 4) {
                 edtRecoveryReturnPass.error = "Parol kamida 4 ta belgidan iborat bo'lishi kerak"
             }
             else if (edtRecoveryPass.text.toString() != edtRecoveryReturnPass.text.toString()) {
