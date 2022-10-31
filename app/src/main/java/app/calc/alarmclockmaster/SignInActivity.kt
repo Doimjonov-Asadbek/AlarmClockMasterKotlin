@@ -60,9 +60,8 @@ class SignInActivity : AppCompatActivity() {
                             }
                         }
                     }
-
                     override fun onFailure(call: Call<SignIn>, t: Throwable) {
-                        TODO("Not yet implemented")
+                        Toast.makeText(this@SignInActivity,"Nimadir xato ketti", Toast.LENGTH_SHORT).show()
                     }
                 })
 
