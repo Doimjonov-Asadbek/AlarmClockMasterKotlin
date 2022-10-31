@@ -5,7 +5,7 @@ public class SignUp {
     String password;
     String verefy;
     String token;
-    
+
     public SignUp(String email, String password) {
         this.email = email;
         this.password = password;

@@ -6,6 +6,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import app.calc.alarmclockmaster.models.ApiClient
+import app.calc.alarmclockmaster.models.SignUp
+import retrofit2.Call
 
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,9 +47,24 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         txtRegisterSign.setOnClickListener {
-            val intent = Intent(this, SignInActivity::class.java)
-            startActivity(intent)
-            finish()
+
+            val signUp = SignUp(
+                edtRegisterEmail.text.toString(),
+                edtRegisterPassword.text.toString()
+            )
+
+            val register: Call<SignUp> = ApiClient.userService.signUp(signUp)
+            register.enqueue(object : retrofit2.Callback<SignUp> {
+                override fun onResponse(call: Call<SignUp>, response: retrofit2.Response<SignUp>) {
+                    if (response.isSuccessful){
+                        Toast.makeText(this@RegisterActivity, response.body()!!.token, Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<SignUp>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+            })
         }
 
     }
