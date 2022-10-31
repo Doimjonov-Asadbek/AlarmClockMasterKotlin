@@ -12,4 +12,7 @@ public interface Interface {
     @POST("verefyuser")
     Call<SignUp> verifyUser(@Body SignUp sign);
 
+    @POST("login")
+    Call<SignIn> signIn(@Body SignIn signIn);
+
 }
