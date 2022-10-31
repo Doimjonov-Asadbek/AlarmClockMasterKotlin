@@ -40,31 +40,38 @@ class RegisterActivity : AppCompatActivity() {
                 edtRegisterReturnPass.error = "Parollar mos kelmadi"
             }
             else {
-                val intent = Intent(this, ConfirmationCode::class.java)
-                startActivity(intent)
-                finish()
+
+                val signUp = SignUp(
+                    edtRegisterEmail.text.toString(),
+                    edtRegisterPassword.text.toString()
+                )
+
+                val register: Call<SignUp> = ApiClient.userService.signUp(signUp)
+                register.enqueue(object : retrofit2.Callback<SignUp> {
+                    override fun onResponse(call: Call<SignUp>, response: retrofit2.Response<SignUp>) {
+                        if (response.isSuccessful){
+                            val user = response.body()
+                            if (user != null){
+                                Toast.makeText(this@RegisterActivity, "Siz ro'yxatdan o'tdingiz", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(this@RegisterActivity, ConfirmationCode::class.java)
+                                intent.putExtra("token",response.body()!!.token)
+                                intent.putExtra("verify",response.body()!!.verefy)
+                                intent.putExtra("email",edtRegisterEmail.text.toString())
+                                startActivity(intent)
+                            }
+                        }
+                    }
+                    override fun onFailure(call: Call<SignUp>, t: Throwable) {
+
+                    }
+                })
             }
         }
 
         txtRegisterSign.setOnClickListener {
-
-            val signUp = SignUp(
-                edtRegisterEmail.text.toString(),
-                edtRegisterPassword.text.toString()
-            )
-
-            val register: Call<SignUp> = ApiClient.userService.signUp(signUp)
-            register.enqueue(object : retrofit2.Callback<SignUp> {
-                override fun onResponse(call: Call<SignUp>, response: retrofit2.Response<SignUp>) {
-                    if (response.isSuccessful){
-                        Toast.makeText(this@RegisterActivity, response.body()!!.token, Toast.LENGTH_SHORT).show()
-                    }
-                }
-
-                override fun onFailure(call: Call<SignUp>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
+            val intent = Intent(this, SignInActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
     }
