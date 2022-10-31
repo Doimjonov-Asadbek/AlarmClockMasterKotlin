@@ -2,6 +2,7 @@ package app.calc.alarmclockmaster
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,6 +26,9 @@ class ClockActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         setContentView(R.layout.activity_clock)
+
+        val sharedPreferences: SharedPreferences = getSharedPreferences("SharedPreference", MODE_PRIVATE)
+        val token = sharedPreferences.getString("token", "").toString()
 
         userList = ArrayList()
         listView = findViewById(R.id.listView)

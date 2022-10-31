@@ -9,4 +9,7 @@ public interface Interface {
     @POST("register")
     Call<SignUp> signUp(@Body SignUp sign);
 
+    @POST("verefyuser")
+    Call<SignUp> verifyUser(@Body SignUp sign);
+
 }
