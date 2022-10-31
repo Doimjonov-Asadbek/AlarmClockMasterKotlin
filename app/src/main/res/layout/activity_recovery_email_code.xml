@@ -22,7 +22,7 @@
         android:id="@+id/edtRecoveryCode"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:inputType="text"
+        android:inputType="number"
         android:layout_marginTop="180dp"
         android:background="@drawable/corner"
         android:hint="Tasdiqlash elektron pochta kodi"

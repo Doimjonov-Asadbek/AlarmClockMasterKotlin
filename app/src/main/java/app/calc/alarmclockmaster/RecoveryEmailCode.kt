@@ -29,7 +29,7 @@ class RecoveryEmailCode : AppCompatActivity() {
                 edtRecoveryCode.error = "Kodni kiriting"
             }
             else if (edtRecoveryCode.text.toString().length < 6){
-                edtRecoveryCode.error = "Kodni kiriting"
+                edtRecoveryCode.error = "Kod to'liq emas"
             }
             else {
                 val intent = Intent(this, RecoveryPassword::class.java)

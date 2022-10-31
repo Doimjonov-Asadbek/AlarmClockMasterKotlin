@@ -19,6 +19,8 @@ class ConfirmationCode : AppCompatActivity() {
     private var verify = ""
     private var token = ""
     private var email = ""
+    private var user = ""
+    private lateinit var sharedPreferences: SharedPreferences
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +47,7 @@ class ConfirmationCode : AppCompatActivity() {
                 edtConfirmationCode.error = "Kodni kiriting"
             }
             else if (edtConfirmationCode.text.toString().length < 6){
-                edtConfirmationCode.error = "Kodni kiriting"
+                edtConfirmationCode.error = "Kod to'liq emas"
             }
             else {
                 val verify = SignUp(email,token)
@@ -54,8 +56,8 @@ class ConfirmationCode : AppCompatActivity() {
                     override fun onResponse(call: Call<SignUp>, response: retrofit2.Response<SignUp>) {
                         if (response.isSuccessful) {
                             val token = response.body()!!.token
-                            val sharedPreferences:SharedPreferences = getSharedPreferences("SharedPreference", MODE_PRIVATE)
-                            val user = sharedPreferences.edit().putString("token", token).apply()
+                            sharedPreferences = getSharedPreferences("SharedPreference", MODE_PRIVATE)
+                            user = sharedPreferences.edit().putString("token", token).apply().toString()
                             val intent = Intent(this@ConfirmationCode, ClockActivity::class.java)
                             startActivity(intent)
                             finish()
