@@ -85,8 +85,6 @@ class SignInActivity : AppCompatActivity() {
                             }
                         }
                         if (response.code() == 401){
-                            val massage = json?.get("error")?.asString
-                            if (massage == "user is blocked"){
                                 AlertDialog.Builder(this@SignInActivity)
                                     .setTitle("Hisobingizni Bloknagan !")
                                     .setMessage("Hisobingiz bloklangan. Iltimos Administrator bilan bog'laning !")
@@ -94,7 +92,6 @@ class SignInActivity : AppCompatActivity() {
                                         dialog.dismiss()
                                     }
                                     .show()
-                            }
                         }
                     }
                     override fun onFailure(call: Call<SignIn>, t: Throwable) {
