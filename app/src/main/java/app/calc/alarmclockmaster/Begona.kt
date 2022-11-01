@@ -35,23 +35,27 @@ class Begona : AppCompatActivity() {
 
         val settings = findViewById<View>(R.id.settings)
         val actionButton = findViewById<FloatingActionButton>(R.id.ActionButton)
+
+        settings.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
         }
 
         actionButton.setOnClickListener {
             allClock()
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            spinnerClock.hour = 0
-            spinnerClock.minute = 0
-        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    @SuppressLint("InflateParams")
+    private fun allClock() {
+        val inflater = LayoutInflater.from(this)
+        val v = inflater.inflate(R.layout.add_list, null)
+        val spinnerClock = v.findViewById<TimePicker>(R.id.spinnerClock)
 
         val comment = v.findViewById<EditText>(R.id.comment)
         val addDialog = AlertDialog.Builder(this)
         addDialog.setView(v)
-        addDialog.setPositiveButton("Qo'shish") { _, _ ->
-            val clock = spinnerClock.hour.toString() + ":" + spinnerClock.minute.toString()
-            val commentText = comment.text.toString()
-            val switchs = "off"
             userList.add(ListData(clock, commentText, switchs))
             listAdapter = ListAdapter(this, userList)
             listView.adapter = listAdapter
