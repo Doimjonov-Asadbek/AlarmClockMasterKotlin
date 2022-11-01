@@ -36,8 +36,9 @@ class Begona : AppCompatActivity() {
         val settings = findViewById<View>(R.id.settings)
         val actionButton = findViewById<FloatingActionButton>(R.id.ActionButton)
 
-        actionButton.setOnClickListener {
-            allClock()
+        settings.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
         }
     }
 
