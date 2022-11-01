@@ -53,9 +53,14 @@ class Begona : AppCompatActivity() {
         val v = inflater.inflate(R.layout.add_list, null)
         val spinnerClock = v.findViewById<TimePicker>(R.id.spinnerClock)
 
-        val comment = v.findViewById<EditText>(R.id.comment)
-        val addDialog = AlertDialog.Builder(this)
-        addDialog.setView(v)
+        spinnerClock.setIs24HourView(true)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            spinnerClock.hour = 0
+            spinnerClock.minute = 0
+        }
+
+   o'shish") { _, _ ->
+            val switchs = "off"
             userList.add(ListData(clock, commentText, switchs))
             listAdapter = ListAdapter(this, userList)
             listView.adapter = listAdapter
