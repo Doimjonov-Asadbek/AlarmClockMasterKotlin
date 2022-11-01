@@ -35,15 +35,6 @@ class Begona : AppCompatActivity() {
 
         val settings = findViewById<View>(R.id.settings)
         val actionButton = findViewById<FloatingActionButton>(R.id.ActionButton)
-
-        settings.setOnClickListener {
-            val intent = Intent(this, SettingsActivity::class.java)
-            startActivity(intent)
-        }
-
-        actionButton.setOnClickListener {
-            allClock()
-        }
     }
     private fun allClock() {
         val inflater = LayoutInflater.from(this)
