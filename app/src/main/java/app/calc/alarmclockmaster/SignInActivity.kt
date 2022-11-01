@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import app.calc.alarmclockmaster.models.ApiClient
 import app.calc.alarmclockmaster.models.SignIn
+import com.google.gson.Gson
 import com.google.gson.JsonObject
 import retrofit2.Call
 
@@ -27,6 +28,7 @@ class SignInActivity : AppCompatActivity() {
         val btnSignIn = findViewById<Button>(R.id.btnSignIn)
         val edtSignEmail = findViewById<EditText>(R.id.edtSignEmail)
         val edtSignPassword = findViewById<EditText>(R.id.edtSignPassword)
+        val gson = Gson()
 
         txtSignRecoveryPassword.setOnClickListener {
             val intent = Intent(this, RecoveryEmailCode::class.java)
@@ -67,14 +69,15 @@ class SignInActivity : AppCompatActivity() {
                             }
                         }
                         if (response.code() == 400){
-                            val message = json?.get("error")?.asString
-                            if (message == "password is incorrect"){
+                            json = gson.fromJson(response.errorBody()?.charStream(), JsonObject::class.java)
+                            val error = json?.get("error")?.asString
+                            if (error == "password is incorrect"){
                                 edtSignPassword?.error = "Parol noto'g'ri"
                             }
-                            if(message == "email is incorrect"){
+                            if(error == "email is incorrect"){
                                 edtSignEmail?.error = "Bunday pochta mavjud emas"
                             }
-                            if (message == "email is not verified"){
+                            if (error == "email is not verified"){
                                 AlertDialog.Builder(this@SignInActivity)
                                     .setTitle("Hisobingizni tasdiqlang !")
                                     .setMessage("Hisobingiz tasdiqlanmagan. Tasdiqlash uchun kodni kiriting")
@@ -85,13 +88,17 @@ class SignInActivity : AppCompatActivity() {
                             }
                         }
                         if (response.code() == 401){
+                            json = gson.fromJson(response.errorBody()?.charStream(), JsonObject::class.java)
+                            val massage = json?.get("massage")?.asString
+                            if (massage == "user is blocked") {
                                 AlertDialog.Builder(this@SignInActivity)
                                     .setTitle("Hisobingizni Bloknagan !")
                                     .setMessage("Hisobingiz bloklangan. Iltimos Administrator bilan bog'laning !")
-                                    .setPositiveButton("OK"){dialog, which ->
+                                    .setPositiveButton("OK") { dialog, which ->
                                         dialog.dismiss()
                                     }
                                     .show()
+                            }
                         }
                     }
                     override fun onFailure(call: Call<SignIn>, t: Throwable) {
