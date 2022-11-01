@@ -7,6 +7,18 @@
     tools:context=".SignInActivity">
 
 
+    <ProgressBar
+        android:id="@+id/signProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/edtSignPassword"
+        app:layout_constraintVertical_bias="0.207" />
+
     <EditText
         android:id="@+id/edtSignEmail"
         android:layout_width="0dp"
