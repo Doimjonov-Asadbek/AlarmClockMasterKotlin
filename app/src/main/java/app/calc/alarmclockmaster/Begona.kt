@@ -32,23 +32,14 @@ class Begona : AppCompatActivity() {
 
         userList = ArrayList()
         listView = findViewById(R.id.listView)
-        val actionButton = findViewById<FloatingActionButton>(R.id.ActionButton)
 
-        settings.setOnClickListener {
-            val intent = Intent(this, SettingsActivity::class.java)
-            startActivity(intent)
+        val settings = findViewById<View>(R.id.settings)
+        val actionButton = findViewById<FloatingActionButton>(R.id.ActionButton)
         }
 
         actionButton.setOnClickListener {
             allClock()
         }
-    }
-    private fun allClock() {
-        val inflater = LayoutInflater.from(this)
-        val v = inflater.inflate(R.layout.add_list, null)
-        val spinnerClock = v.findViewById<TimePicker>(R.id.spinnerClock)
-
-        spinnerClock.setIs24HourView(true)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             spinnerClock.hour = 0
             spinnerClock.minute = 0
