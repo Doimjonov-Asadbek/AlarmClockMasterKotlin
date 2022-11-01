@@ -7,11 +7,16 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import app.calc.alarmclockmaster.models.ApiClient
 import app.calc.alarmclockmaster.models.SignIn
+import com.google.gson.JsonObject
 import retrofit2.Call
 
 class SignInActivity : AppCompatActivity() {
+
+    var json: JsonObject? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
@@ -59,6 +64,24 @@ class SignInActivity : AppCompatActivity() {
                                 val intent = Intent(this@SignInActivity,ClockActivity::class.java)
                                 startActivity(intent)
                                 finish()
+                            }
+                        }
+                        if (response.code() == 400){
+                            val message = json?.get("error")?.asString
+                            if (message == "password is incorrect"){
+                                edtSignPassword?.error = "Parol noto'g'ri"
+                            }
+                            if(message == "email is incorrect"){
+                                edtSignEmail?.error = "Bunday pochta mavjud emas"
+                            }
+                            if (message == "email is not verified"){
+                                AlertDialog.Builder(this@SignInActivity)
+                                    .setTitle("Hisobingizni tasdiqlang !")
+                                    .setMessage("Hisobingiz tasdiqlanmagan. Tasdiqlash uchun kodni kiriting")
+                                    .setPositiveButton("OK"){dialog, which ->
+                                        dialog.dismiss()
+                                    }
+                                    .show()
                             }
                         }
                     }
