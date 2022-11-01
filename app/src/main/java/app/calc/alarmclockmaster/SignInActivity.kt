@@ -84,6 +84,18 @@ class SignInActivity : AppCompatActivity() {
                                     .show()
                             }
                         }
+                        if (response.code() == 401){
+                            val massage = json?.get("error")?.asString
+                            if (massage == "user is blocked"){
+                                AlertDialog.Builder(this@SignInActivity)
+                                    .setTitle("Hisobingizni Bloknagan !")
+                                    .setMessage("Hisobingiz bloklangan. Iltimos Administrator bilan bog'laning !")
+                                    .setPositiveButton("OK"){dialog, which ->
+                                        dialog.dismiss()
+                                    }
+                                    .show()
+                            }
+                        }
                     }
                     override fun onFailure(call: Call<SignIn>, t: Throwable) {
                         Toast.makeText(this@SignInActivity,"Nimadir xato ketti", Toast.LENGTH_SHORT).show()
