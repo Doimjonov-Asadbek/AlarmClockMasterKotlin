@@ -89,8 +89,8 @@ class SignInActivity : AppCompatActivity() {
                         }
                         if (response.code() == 401){
                             json = gson.fromJson(response.errorBody()?.charStream(), JsonObject::class.java)
-                            val massage = json?.get("massage")?.asString
-                            if (massage == "user is blocked") {
+                            val error = json?.get("error")?.asString
+                            if (error == "user is blocked") {
                                 AlertDialog.Builder(this@SignInActivity)
                                     .setTitle("Hisobingizni Bloknagan !")
                                     .setMessage("Hisobingiz bloklangan. Iltimos Administrator bilan bog'laning !")
