@@ -53,10 +53,12 @@ class SignInActivity : AppCompatActivity() {
                 val signIn: Call<SignIn> = ApiClient.userService.signIn(signin)
                 signIn.enqueue(object : retrofit2.Callback<SignIn> {
                     override fun onResponse(call: Call<SignIn>, response: retrofit2.Response<SignIn>) {
-                        if (response.isSuccessful){
+                        if (response.code() == 200){
                             val user = response.body()
                             if (user != null){
-                                Toast.makeText(this@SignInActivity, response.body()!!.token, Toast.LENGTH_SHORT).show()
+                                val intent = Intent(this@SignInActivity,ClockActivity::class.java)
+                                startActivity(intent)
+                                finish()
                             }
                         }
                     }
