@@ -85,15 +85,20 @@ class SignInActivity : AppCompatActivity() {
                             signProgress.visibility = ProgressBar.INVISIBLE
                             btnSignIn.visibility = Button.VISIBLE
 
+                            if (error == "email is not verified"){
+                                AlertDialog.Builder(this@SignInActivity)
+                                    .setTitle("Hisobingizni tasdiqlang !")
+                                    .setMessage("Hisobingiz tasdiqlanmagan. Tasdiqlash uchun kodni kiriting")
+                                    .setPositiveButton("OK"){dialog, which ->
+                                        dialog.dismiss()
+                                    }
+                                    .show()
+                            }
                             if (error == "password is incorrect"){
                                 edtSignPassword?.error = "Parol noto'g'ri"
                             }
                             if(error == "email is incorrect"){
                                 edtSignEmail?.error = "Bunday pochta mavjud emas"
-                            }
-                            if (error == "email is not verified"){
-                                val intent = Intent(this@SignInActivity, ConfirmationCode::class.java)
-                                startActivity(intent)
                             }
                         }
                         if (response.code() == 401){
