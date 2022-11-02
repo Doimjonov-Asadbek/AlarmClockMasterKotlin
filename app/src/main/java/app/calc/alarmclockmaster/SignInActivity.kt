@@ -92,13 +92,8 @@ class SignInActivity : AppCompatActivity() {
                                 edtSignEmail?.error = "Bunday pochta mavjud emas"
                             }
                             if (error == "email is not verified"){
-                                AlertDialog.Builder(this@SignInActivity)
-                                    .setTitle("Hisobingizni tasdiqlang !")
-                                    .setMessage("Hisobingiz tasdiqlanmagan. Tasdiqlash uchun kodni kiriting")
-                                    .setPositiveButton("OK"){dialog, which ->
-                                        dialog.dismiss()
-                                    }
-                                    .show()
+                                val intent = Intent(this@SignInActivity, ConfirmationCode::class.java)
+                                startActivity(intent)
                             }
                         }
                         if (response.code() == 401){
