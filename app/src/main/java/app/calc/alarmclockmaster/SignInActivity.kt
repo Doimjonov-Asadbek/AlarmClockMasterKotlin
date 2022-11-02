@@ -94,6 +94,7 @@ class SignInActivity : AppCompatActivity() {
                             }
 
 
+
                             else{
                                 if(error == "email is not verified"){
                                     AlertDialog.Builder(this@SignInActivity)
