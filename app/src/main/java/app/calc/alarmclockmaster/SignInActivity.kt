@@ -85,6 +85,12 @@ class SignInActivity : AppCompatActivity() {
                             signProgress.visibility = ProgressBar.INVISIBLE
                             btnSignIn.visibility = Button.VISIBLE
 
+                            if (error == "password is incorrect"){
+                                edtSignPassword?.error = "Parol noto'g'ri"
+                            }
+                            if(error == "email is incorrect"){
+                                edtSignEmail?.error = "Bunday pochta mavjud emas"
+                            }
                             if (error == "email is not verified"){
                                 AlertDialog.Builder(this@SignInActivity)
                                     .setTitle("Hisobingizni tasdiqlang !")
@@ -93,12 +99,6 @@ class SignInActivity : AppCompatActivity() {
                                         dialog.dismiss()
                                     }
                                     .show()
-                            }
-                            if (error == "password is incorrect"){
-                                edtSignPassword?.error = "Parol noto'g'ri"
-                            }
-                            if(error == "email is incorrect"){
-                                edtSignEmail?.error = "Bunday pochta mavjud emas"
                             }
                         }
                         if (response.code() == 401){
