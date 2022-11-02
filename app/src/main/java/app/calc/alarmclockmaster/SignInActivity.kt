@@ -91,8 +91,8 @@ class SignInActivity : AppCompatActivity() {
                             }
                             if(error == "email is incorrect"){
                                 edtSignEmail?.error = "Bunday pochta mavjud emas"
-                            } else{
-                                if(error == "email is not verified"){
+                            }
+                            else{ if(error == "email is not verified"){
                                     AlertDialog.Builder(this@SignInActivity)
                                         .setTitle("Hisobingizni tasdiqlang !")
                                         .setMessage("Hisobingiz tasdiqlanmagan. Tasdiqlash uchun kodni kiriting")
