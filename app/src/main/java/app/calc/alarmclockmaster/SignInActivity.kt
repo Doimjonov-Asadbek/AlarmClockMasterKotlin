@@ -82,24 +82,7 @@ class SignInActivity : AppCompatActivity() {
                             json = gson.fromJson(response.errorBody()?.charStream(), JsonObject::class.java)
                             val error = json?.get("error")?.asString
 
-                            signProgress.visibility = ProgressBar.INVISIBLE
-                            btnSignIn.visibility = Button.VISIBLE
-
-                            if (error == "password is incorrect"){
-                                edtSignPassword?.error = "Parol noto'g'ri"
-                            }
-                            if(error == "email is incorrect"){
-                                edtSignEmail?.error = "Bunday pochta mavjud emas"
-                            }
-                            if (error == "email is not verified"){
-                                AlertDialog.Builder(this@SignInActivity)
-                                    .setTitle("Hisobingizni tasdiqlang !")
-                                    .setMessage("Hisobingiz tasdiqlanmagan. Tasdiqlash uchun kodni kiriting")
-                                    .setPositiveButton("OK"){dialog, which ->
-                                        dialog.dismiss()
-                                    }
-                                    .show()
-                            }
+                            signProgress.visibility = ProgressBar.INV
                         }
                         if (response.code() == 401){
 
