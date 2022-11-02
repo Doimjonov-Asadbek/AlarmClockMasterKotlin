@@ -92,6 +92,7 @@ class SignInActivity : AppCompatActivity() {
                             if(error == "email is incorrect"){
                                 edtSignEmail?.error = "Bunday pochta mavjud emas"
                             }
+
                             else{
                                 if(error == "email is not verified"){
                                     AlertDialog.Builder(this@SignInActivity)
