@@ -78,8 +78,6 @@ class SignInActivity : AppCompatActivity() {
                                 finish()
                             }
                         }
-
-                        
                         if (response.code() == 400){
                             json = gson.fromJson(response.errorBody()?.charStream(), JsonObject::class.java)
                             val error = json?.get("error")?.asString
