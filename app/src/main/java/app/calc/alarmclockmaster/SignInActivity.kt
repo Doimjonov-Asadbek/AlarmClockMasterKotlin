@@ -92,6 +92,7 @@ class SignInActivity : AppCompatActivity() {
 
 
 
+
                             
                             if(error == "email is incorrect"){
                                 edtSignEmail?.error = "Bunday pochta mavjud emas "
