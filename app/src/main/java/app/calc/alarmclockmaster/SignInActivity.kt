@@ -87,8 +87,7 @@ class SignInActivity : AppCompatActivity() {
                             btnSignIn.visibility = Button.VISIBLE
 
                             if (error == "password is incorrect"){
-                                edtSignPassword?.error = "Parol noto'g'ri"
-                            }
+                                edtSignPassword?.error = "Parol noto'g'r
                             if(error == "email is incorrect"){
                                 edtSignEmail?.error = "Bunday pochta mavjud emas "
                             } else{
