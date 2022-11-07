@@ -88,6 +88,7 @@ class SignInActivity : AppCompatActivity() {
 
                             if (error == "password is incorrect"){
                                 edtSignPassword?.error = "Parol noto'g'ri"
+                            }
                             
                             if(error == "email is incorrect"){
                                 edtSignEmail?.error = "Bunday pochta mavjud emas "
